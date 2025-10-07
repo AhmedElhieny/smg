@@ -9,7 +9,7 @@ let allQuranAudio = [
     name: "سورة البقرة AL-Baqarah",
     theReader: "الشيخ مـجـدي الـصـادق",
     image: "./img/m.jpg",
-    src: "https://www.dropbox.com/scl/fi/e1gob5e5wfcpj93ipw7b8/2-2025.mp3?rlkey=5b7x9vtd7wbznui0yr0j5xmfs&st=ajne95qa&dl=1",
+    src: "https://www.dropbox.com/scl/fi/e1gob5e5wfcpj93ipw7b8/2-2025.mp3?rlkey=0p9p5w304p64b37yeyptdasyx&st=6mag3gpd&dl=1",
   },
   {
     name: "سورة آل عمران Aali-Imraan",
