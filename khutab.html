@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>خطب الشيخ مجدي الصادق</title>
+  <style>
+    body {
+      font-family: "Tajawal", sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      margin: 0;
+      padding: 0;
+      color: #fff;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0,0,0,0.6);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: #ffd700;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 80px;
+      padding: 20px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 25px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.8);
+    }
+
+    .thumbnail {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-bottom: 2px solid #ffd700;
+    }
+
+    .card h2 {
+      text-align: center;
+      font-size: 1.2rem;
+      margin: 15px;
+      color: #ffd700;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>خطب الشيخ مجدي الصادق</h1>
+  </header>
+
+  <div class="container">
+    <!-- الكارت الأول -->
+    <a class="card" href="https://www.youtube.com/watch?v=P1xIj76FkVw" target="_blank">
+      <img src="./img/m.jpg" alt="الخطبة 1" class="thumbnail">
+      <h2>شاهد الخطبة من هنا</h2>
+    </a>
+
+    <!-- الكارت الثاني -->
+    <a class="card" href="https://www.youtube.com/watch?v=5eGGCvaEJGHluCsO" target="_blank">
+      <img src="./img/m.jpg" alt="الخطبة 2" class="thumbnail">
+      <h2>شاهد الخطبة من هنا</h2>
+    </a>
+
+    <!-- الكارت الثالث -->
+    <a class="card" href="https://www.youtube.com/watch?v=kGbvNWVZ6A139lum" target="_blank">
+      <img src="./img/m.jpg" alt="الخطبة 3" class="thumbnail">
+      <h2>شاهد الخطبة من هنا</h2>
+    </a>
+  </div>
+</body>
+</html>

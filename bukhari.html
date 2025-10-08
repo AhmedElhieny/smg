@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>صحيح البخاري</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .iframe-container {
+      position: relative;
+      width: 100%;
+      flex: 1; /* يخلي الإطار ياخد كل المساحة */
+      overflow: hidden;
+    }
+
+    .iframe-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="iframe-container">
+    <iframe 
+      src="https://books.google.jo/books?id=vrnQDwAAQBAJ&newbks=0&lpg=PP1&dq=%D8%B5%D8%AD%D9%8A%D8%AD%20%D8%A7%D9%84%D8%A8%D8%AE%D8%A7%D8%B1%D9%8A%20pdf&hl=ar&pg=PP1&output=embed" 
+      frameborder="0" 
+      scrolling="no">
+    </iframe>
+  </div>
+
+</body>
+</html>
