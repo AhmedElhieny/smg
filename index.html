@@ -2,275 +2,352 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>الشيخ مجدي الصادق — الصفحة الرئيسية</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-  <link rel="manifest" href="manifest.json">
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
-  }
-</script>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>تطبيق الشيخ مجدي الصادق</title>
 
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#0f1724; /* deep navy */
-      --card:#0b1220; /* card dark */
-      --accent:#d4af37; /* gold */
-      --muted:#9aa6b2;
-      --glass: rgba(255,255,255,0.03);
+    :root {
+      --main: #176a6d;
+      --accent: #d4af37;
+      --card: #ffffff;
+      --muted: #e9f1f0;
+      --radius: 18px;
+      --text: #17343a;
+      --shadow: 0 6px 18px rgba(22,106,109,0.1);
+      --hover: #e8faf9;
     }
-    *{box-sizing:border-box}
-    body{
-      margin:0;min-height:100vh;font-family:'Cairo',system-ui,Segoe UI,Roboto,Arial;
-      background: radial-gradient(1200px 600px at 10% 10%, rgba(212,175,55,0.06), transparent 10%),
-                  radial-gradient(1000px 500px at 90% 90%, rgba(255,255,255,0.02), transparent 10%),
-                  var(--bg);color:#e6eef6; -webkit-font-smoothing:antialiased;
-      padding:32px;
-      display:flex;flex-direction:column;gap:28px;
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(180deg,#f8fbfb,#edf6f5);
+      color: var(--text);
     }
-    header{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-    .brand{display:flex;align-items:center;gap:14px;flex:1;min-width:240px}
-    .logo {
-      width: 72px;
-      height: 72px;
-      border-radius: 18px;
+
+    /* Header */
+    .app-header {
+      background: linear-gradient(180deg, var(--main), #0f5f61);
+      color: white;
+      padding: 16px 16px 26px;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .app-title { margin: 0; font-size: 20px; font-weight: 700; }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .hero-img-frame {
+      border-radius: 14px;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.15);
       overflow: hidden;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
-      transform: rotate(-6deg);
-      flex-shrink: 0;
-      flex-grow: 0;
+      border: 3px solid rgba(255,255,255,0.15);
     }
-    .logo img {
+
+    .hero-img {
       width: 100%;
-      height: 100%;
+      max-width: 350px;
+      height: 110px;
       object-fit: cover;
       display: block;
     }
 
-    .title{line-height:1}
-    .title h1{margin:0;font-size:20px;font-weight:700}
-    .title p{margin:0;color:var(--muted);font-size:13px}
-
-    .controls{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:12px}
-    .search{background:var(--glass);border:1px solid rgba(255,255,255,0.03);padding:8px 12px;border-radius:12px;min-width:180px;color:var(--muted);flex:1}
-    a.action{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px 14px;border-radius:12px;color:var(--accent);text-decoration:none;font-weight:600;white-space:nowrap}
-
-    main{display:flex;gap:28px;align-items:flex-start;flex-wrap:wrap}
-    .intro{flex:1;min-width:260px;max-width:420px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:20px;border-radius:16px;border:1px solid rgba(255,255,255,0.03);backdrop-filter: blur(6px)}
-    .intro h2{margin:0 0 8px 0;font-size:18px}
-    .intro p{margin:0;color:var(--muted);line-height:1.6}
-
-    .grid-wrap{flex:2;min-width:260px}
-    .grid{display:grid;grid-template-columns:repeat(1,1fr);gap:18px}
-
-    @media(min-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
-    @media(min-width:1024px){.grid{grid-template-columns:repeat(3,1fr)}}
-
-    .card{
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:14px;padding:18px;border:1px solid rgba(255,255,255,0.03);display:flex;gap:12px;align-items:center;cursor:pointer;text-decoration:none;color:inherit;
-      transition:transform .35s cubic-bezier(.2,.9,.2,1), box-shadow .35s, border-color .35s;
-      transform:translateY(10px);opacity:0;flex-wrap:wrap
+    .hero-sub {
+      margin-top: 8px;
+      font-size: 14px;
+      opacity: 0.9;
     }
-    .card:focus{outline:2px solid rgba(212,175,55,0.12)}
-    .card:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 18px 45px rgba(2,6,23,0.6);border-color:rgba(212,175,55,0.12)}
-    .card .icon{width:64px;height:64px;border-radius:12px;display:grid;place-items:center;font-weight:700;font-size:20px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.18));border:1px solid rgba(255,255,255,0.03);flex-shrink:0}
-    .card .meta{flex:1;min-width:140px}
-    .card h3{margin:0;font-size:15px}
-    .card p{margin:6px 0 0 0;color:var(--muted);font-size:13px}
-    .chip{padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,0.04);font-size:12px;color:var(--muted);white-space:nowrap}
 
-    /* staggered fade-in */
-    .card.show{animation:fadeUp .55s forwards}
-    @keyframes fadeUp{from{transform:translateY(10px);opacity:0}to{transform:translateY(0);opacity:1}}
+    main { padding: 18px; }
 
-    /* footer */
-    footer{display:flex;justify-content:center;padding:14px;color:var(--muted);font-size:13px;text-align:center;flex-wrap:wrap}
+    /* --- الكروت العلوية --- */
+    .top-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
 
-    /* small helpers */
-    .right-align{text-align:right}
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 14px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 15px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(0,0,0,0.04);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
 
-    /* Mobile tweaks */
-    @media(max-width:480px){
-      body{padding:16px}
-      .logo{width:56px;height:56px}
-      .title h1{font-size:18px}
-      .controls{flex-direction:column;align-items:stretch}
-      .search{min-width:auto;width:100%}
-      main{flex-direction:column}
-      .intro,.grid-wrap{max-width:100%}
-      .card{flex-direction:column;align-items:flex-start}
-      .card .icon{margin-bottom:8px}
-      .card .meta{text-align:right}
+    .card:hover {
+      background: var(--hover);
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(23,106,109,0.2);
+    }
+
+    .card:active {
+      background: var(--accent);
+      color: white;
+      transform: scale(0.95);
+    }
+
+    /* --- المميزات --- */
+    .features-banner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin: 22px 0;
+      padding: 10px;
+      border-radius: 14px;
+      background: linear-gradient(90deg,#ecf6f6,#f3f8f8);
+      box-shadow: var(--shadow);
+    }
+
+    .features-banner h2 {
+      margin: 0;
+      font-size: 18px;
+      color: var(--main);
+    }
+
+    /* --- الكروت السفلية --- */
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 10px;
+    }
+
+    .feature-card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 14px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      background: var(--hover);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+
+    .feature-card:active {
+      background: var(--accent);
+      color: white;
+      transform: scale(0.95);
+    }
+
+    .icon {
+      font-size: 26px;
+      margin-bottom: 8px;
+      background: rgba(23,106,109,0.08);
+      padding: 12px;
+      border-radius: 10px;
+      transition: background 0.3s ease;
+    }
+
+    .feature-card:active .icon {
+      background: rgba(255,255,255,0.3);
+    }
+
+    .label {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    @media (min-width: 900px) {
+      .hero-img { height: 160px; }
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <div class="brand">
-      <div class="logo"><img src="./img/m.jpg" alt=""></div>
-      <div class="title">
-        <h1>الشيخ مجدي الصادق</h1>
-        <br>
-        <p>تلاوات، أحاديث، أذكار ومكتبة صوتية مكتملة</p>
+  <header class="app-header">
+    <h1 class="app-title">الشيخ مجدي الصادق</h1>
+    <div class="hero">
+      <div class="hero-img-frame">
+        <img src="./img/m.jpg" alt="الشيخ مجدي الصادق" class="hero-img">
       </div>
-    </div>
-    <div class="controls">
-      <input class="search" placeholder="ابحث عن سورة أو ذكر أو خطبة..." aria-label="بحث" />
-      <a class="action" href="#about">حول</a>
+      <p class="hero-sub">يعمل بالإنترنت - تطبيق الشيخ مجدي الصادق</p>
     </div>
   </header>
 
   <main>
-    <section class="intro">
-      <h2>أهلًا بك</h2>
-      <p>هذه الصفحة الرئيسية للتطبيق — واجهة أنيقة وبسيطة تُوصلُك سريعًا لكل أقسام المحتوى. اضغط على أي كارت للانتقال للصفحة الخاصة به.</p>
-      <div style="height:12px"></div>
-      <div class="chip"></div>
+    <section class="top-cards">
+      <div class="card" onclick="openPage('magdy.html')">🎧 تلاوات المحراب للشيخ مجدي</div>
+      <div class="card" onclick="openPage('khutab.html')">▶️قوائم تشغيل يوتيوب الشيح مجدي</div>
+  
+      
     </section>
+   
+    <div class="features-banner">
+      <h2>آيات عشوائية</h2>
+    </div>
+    
+    <div id="ayah" style="text-align:center; margin:20px; font-size:22px; color:#144e91; font-weight:bold;">
+       
+    </div>
+<br>
 
-    <section class="grid-wrap">
-      <div class="grid" id="cards">
-        <!-- Card structure -->
-        <a class="card" href="magdy.html" title="تلاوات المحراب">
-          <div class="icon">🎧</div>
-          <div class="meta right-align">
-            <h3>تلاوات المحراب</h3>
-            <p> القرآن كاملا  — تشغيل متواصل وقوائم تشغيل.</p>
-          </div>
-          <div class="chip">استمع</div>
-        </a>
+    <div class="features-banner">
+      <h2>مميزات إضافية</h2>
+    </div>
 
-        <a class="card" href="quran-text.html" title="القرآن الكريم كتابة">
-          <div class="icon">📖</div>
-          <div class="meta right-align">
-            <h3>القرآن الكريم — كتابة</h3>
-            <p>نصوص القرآن مرتبة ومقروءة مع مكتبة صوتية كبيرة لكبار الشيوخ .</p>
-          </div>
-          <div class="chip">نص</div>
-        </a>
-
-        <a class="card" href="khutab.html" title="خطب الشيخ مجدي">
-          <div class="icon">📜</div>
-          <div class="meta right-align">
-            <h3>خطب الشيخ مجدي</h3>
-            <p>خطب مسجلة للشيخ للمزيد قم بزيارة الصفحة علي اليوتيوب.</p>
-          </div>
-          <div class="chip">خطب</div>
-        </a>
-
-        <a class="card" href="bukhari.html" title="صحيح البخاري">
-          <div class="icon">🕌</div>
-          <div class="meta right-align">
-            <h3>صحيح البخاري</h3>
-            <p>مختارات من الأحاديث الصحيحة مع ترجمة مختصرة.</p>
-          </div>
-          <div class="chip">حديث</div>
-        </a>
-
-        <a class="card" href="arbain.html" title="الاربعون النووية">
-          <div class="icon">📚</div>
-          <div class="meta right-align">
-            <h3>الأربعون النووية</h3>
-            <p>الأربعون النووية مع شروح مبسطة.</p>
-          </div>
-          <div class="chip">مجموعات</div>
-        </a>
-
-        <a class="card" href="adhkar-travel.html" title="اذكار السفر">
-          <div class="icon">🧭</div>
-          <div class="meta right-align">
-            <h3>أذكار السفر</h3>
-            <p>أدعية مختصرة للسفر والعودة بأذكار مُرتبة.</p>
-          </div>
-          <div class="chip">أذكار</div>
-        </a>
-
-        <a class="card" href="m.html" title="اذكار الصباح">
-          <div class="icon">🌅</div>
-          <div class="meta right-align">
-            <h3>أذكار الصباح</h3>
-            <p>أذكار صباحية يومية قصيرة وسهلة الحفظ.</p>
-          </div>
-          <div class="chip">صباح</div>
-        </a>
-
-        <a class="card" href="adhkar-evening.html" title="اذكار المساء">
-          <div class="icon">🌙</div>
-          <div class="meta right-align">
-            <h3>أذكار المساء</h3>
-            <p>أذكار المساء للحفظ والطمأنينة.</p>
-          </div>
-          <div class="chip">مساء</div>
-        </a>
-
-        <a class="card" href="adhkar-sleep.html" title="اذكار النوم">
-          <div class="icon">😴</div>
-          <div class="meta right-align">
-            <h3>أذكار النوم</h3>
-            <p>أدعية قبل النوم لحفظٍ وراحةٍ نفسية.</p>
-          </div>
-          <div class="chip">نوم</div>
-        </a>
-
-        <a class="card" href="adhkar-mosque.html" title="اذكار دخول المسجد">
-          <div class="icon">🛐</div>
-          <div class="meta right-align">
-            <h3>أذكار دخول المسجد</h3>
-            <p>أذكار وآداب الدخول والخروج من المسجد.</p>
-          </div>
-          <div class="chip">مسجد</div>
-        </a>
-
-        <a class="card" href="adhkar-after-prayer.html" title="اذكار ما بعد الصلاة">
-          <div class="icon">🙏</div>
-          <div class="meta right-align">
-            <h3>أذكار ما بعد الصلاة</h3>
-            <p>أذكار قصيرة بعد الانتهاء من الصلاة.</p>
-          </div>
-          <div class="chip">بعد الصلاة</div>
-        </a>
-
-        <a class="card" href="dua-khatm.html" title="دعاء ختم القران">
-          <div class="icon">🤲</div>
-          <div class="meta right-align">
-            <h3>دعاء ختم القرآن</h3>
-            <p>دعاء ملائم عند ختم المصحف مع تعليمات بسيطة.</p>
-          </div>
-          <div class="chip">ختم</div>
-        </a>
-
-        <a class="card" href="prayer-times.html" title="مواقيت الصلاة">
-          <div class="icon">🕋</div>
-          <div class="meta right-align">
-            <h3>مواقيت الصلاة</h3>
-            <p>مواقيت الصلاة اليومية مع تنبيهات وأذان.</p>
-          </div>
-          <div class="chip">أوقات</div>
-        </a>
+    <section class="grid-cards">
+      <div class="feature-card" onclick="window.open('https://quran-kareem.vercel.app/')">
+        <div class="icon">🎧</div>
+        <div class="label">مكتبة صوتية تحتوي على 251 قارئ</div>
+      </div>
+      
+      <div class="feature-card"  onclick="window.open('https://mp30quran.github.io/quran-madinah/index.html')">
+        <div class="icon">📖</div><div class="label">المصحف الشريف</div>
+      </div>
+      <div class="feature-card"  onclick="window.open('https://www.holyquranradio.com/')">
+        <div class="icon">📡</div><div class="label">اذاعة القرآن الكريم</div>
+      </div>
+      <div class="feature-card" onclick="window.open('https://www.altafsir.com/Books/DailyWird2010.pdf')">
+        <div class="icon">🌿</div><div class="label">الورد اليومي مع التفسير</div>
+    
       </div>
     </section>
-  </main>
+    
 
-  <footer>صُنِعَت بلمسة بسيطة — واجهة قابلة للتخصيص. &nbsp; | &nbsp; نسخة تجريبية</footer>
+    <div class="features-banner">
+      <h2>مميزات أخري</h2>
+    </div>
+    <section class="grid-cards">
+      <div class="feature-card" onclick="openPage('m.html')">
+        <div class="icon">🌅</div><div class="label">أذكار الصباح</div>
+      </div>
+      <div class="feature-card" onclick="openPage('adhkar-evening.html')">
+        <div class="icon">🌙</div><div class="label">أذكار المساء</div>
+      </div>
+      <div class="feature-card" onclick="openPage('adhkar-sleep.html')">
+        <div class="icon">😴</div><div class="label">أذكار النوم</div>
+      </div>
+      <div class="feature-card" onclick="openPage('adhkar-mosque.html')">
+        <div class="icon">🛐</div><div class="label">أذكار دخول المسجد</div>
+      </div>
+     
+      <div class="feature-card" onclick="openPage('adhkar-after-prayer.html')">
+        <div class="icon">🙏</div><div class="label">أذكار بعد الصلاة</div>
+      </div>
+      <div class="feature-card" onclick="openPage('dua-khatm.html')">
+        <div class="icon">🤲</div><div class="label">دعاء ختم القرآن</div>
+      </div>
+      <div class="feature-card" onclick="openPage('prayer-times.html')">
+        <div class="icon">🕋</div><div class="label">مواقيت الصلاة</div>
+      </div>
+    
+    </section>
+  </main>
+  <footer class="footer">
+    <span>Developed with 💙 by 
+      <a href="https://www.facebook.com/ahmd.jmal.alhyny" target="_blank">Eng. Ahmed Gamal Elhieny</a>
+    </span>
+  </footer>
+  
+  <style>
+  .footer {
+    text-align: center;
+    padding: 15px 10px;
+    margin-top: 40px;
+    font-size: 16px;
+    color: #ffffff;
+    background: linear-gradient(to right, #7a8188, #041a29);
+    border-top: 1px solid #c9d6ff;
+    font-family: 'Poppins', sans-serif;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  .footer a {
+    color: #e1e1e1;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .footer a:hover {
+    color: #d4af37;
+    text-shadow: 0 0 8px rgba(212,175,55,0.5);
+  }
+  
+  /* ✅ Responsive Design */
+  @media (max-width: 768px) {
+    .footer {
+      font-size: 14px;
+      padding: 12px 5px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .footer {
+      font-size: 13px;
+      padding: 10px 4px;
+    }
+    .footer a {
+      display: block;
+      margin-top: 3px;
+    }
+  }
+  </style>
+  
 
   <script>
-    // add show class with stagger
-    const cards = document.querySelectorAll('.card');
-    cards.forEach((c,i)=>{
-      setTimeout(()=>c.classList.add('show'), i*80);
-    });
-
-    // basic search filter (client-side)
-    const search = document.querySelector('.search');
-    search.addEventListener('input', e=>{
-      const q = e.target.value.trim().toLowerCase();
-      cards.forEach(card=>{
-        const text = card.textContent.toLowerCase();
-        card.style.display = q && !text.includes(q) ? 'none' : 'flex';
-      });
-    });
+    // تأثير عند فتح صفحة
+    function openPage(link) {
+      document.body.style.transition = "opacity 0.4s ease";
+      document.body.style.opacity = "0";
+      setTimeout(() => { window.location.href = link; }, 400);
+    }
   </script>
+  <script>
+    const ayat = [
+      "إِنَّ مَعَ الْعُسْرِ يُسْرًا – الشرح:5",
+      "فَإِنَّ مَعَ الْعُسْرِ يُسْرًا – الشرح:6",
+      "رَبِّ زِدْنِي عِلْمًا – طه:114",
+      "وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا – الطلاق:2",
+      "إِنَّ اللَّهَ مَعَ الصَّابِرِينَ – البقرة:153",
+      "فَاذْكُرُونِي أَذْكُرْكُمْ – البقرة:152",
+      "أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ – الرعد:28",
+      "إِنَّ اللَّهَ لَا يُضِيعُ أَجْرَ الْمُحْسِنِينَ – التوبة:120",
+      "إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ – الحجرات:10",
+      "قُلْ هُوَ اللَّهُ أَحَدٌ – الإخلاص:1",
+      "قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ – الفلق:1",
+      "قُلْ أَعُوذُ بِرَبِّ النَّاسِ – الناس:1",
+      "وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ – الطلاق:3",
+      "إِنَّ اللَّهَ بَالِغُ أَمْرِهِ – الطلاق:3",
+      "رَبِّ أَوْزِعْنِي أَنْ أَشْكُرَ نِعْمَتَكَ – النمل:19",
+      "إِنَّ اللَّهَ يُحِبُّ الْمُتَوَكِّلِينَ – آل عمران:159",
+      "وَاصْبِرْ وَمَا صَبْرُكَ إِلَّا بِاللَّهِ – النحل:127",
+      "إِنَّ اللَّهَ نِعِمَّا يَعِظُكُم بِهِ – النساء:58",
+      "وَمَن يُؤْمِن بِاللَّهِ يَهْدِ قَلْبَهُ – التغابن:11",
+      "إِنَّ اللَّهَ مَعَنَا – التوبة:40",
+      "إِنَّ اللَّهَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ – البقرة:20",
+      "وَقُل رَبِّ زِدْنِي عِلْمًا – طه:114",
+      "وَقُل رَّبِّ أَدْخِلْنِي مُدْخَلَ صِدْقٍ – الإسراء:80",
+      "فَسَيَكْفِيكَهُمُ اللَّهُ – البقرة:137",
+      "وَعَسَى أَنْ تَكْرَهُوا شَيْئًا وَهُوَ خَيْرٌ لَّكُمْ – البقرة:216"
+    ];
+    
+    // عند فتح الصفحة أو التحديث — آية جديدة عشوائية
+    const index = Math.floor(Math.random() * ayat.length);
+    document.getElementById("ayah").textContent = ayat[index];
+    </script>
+    
 </body>
 </html>
