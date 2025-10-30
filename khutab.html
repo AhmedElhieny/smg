@@ -3,8 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>خطب الشيخ مجدي الصادق</title>
+  <title>قوائم تشغيل الشيخ مجدي الصادق</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+
     body {
       font-family: "Tajawal", sans-serif;
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
@@ -15,38 +17,42 @@
 
     header {
       text-align: center;
-      padding: 20px;
-      background: rgba(0,0,0,0.6);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+      padding: 25px;
+      background: rgba(0, 0, 0, 0.7);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
     }
 
     header h1 {
       margin: 0;
-      font-size: 2rem;
+      font-size: 2.2rem;
       color: #ffd700;
+      letter-spacing: 1px;
     }
 
     .container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 80px;
-      padding: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      padding: 30px;
+      max-width: 1300px;
+      margin: auto;
     }
 
     .card {
-      background: rgba(255,255,255,0.05);
-      border-radius: 25px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.6);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       text-decoration: none;
       color: inherit;
-      display: block;
+      display: flex;
+      flex-direction: column;
     }
 
     .card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.8);
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.9);
     }
 
     .thumbnail {
@@ -54,39 +60,142 @@
       height: 300px;
       object-fit: cover;
       border-bottom: 2px solid #ffd700;
+      transition: opacity 0.3s ease;
+    }
+
+    .card:hover .thumbnail {
+      opacity: 0.9;
     }
 
     .card h2 {
       text-align: center;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       margin: 15px;
       color: #ffd700;
     }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: rgba(0, 0, 0, 0.7);
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+    .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  padding: 20px;
+  max-width: 1300px;
+  margin: auto;
+}
+
+.card {
+  background: rgba(255,255,255,0.08);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+}
+
+.thumbnail {
+  width: 100%;
+  height: 150px; /* قللنا الطول */
+  object-fit: cover;
+  border-bottom: 2px solid #ffd700;
+  transition: opacity 0.3s ease;
+}
+
+.card h2 {
+  text-align: center;
+  font-size: 0.9rem; /* حجم أصغر للنص */
+  margin: 10px 5px;
+  color: #ffd700;
+}
+
+/* Media Queries للشاشات الصغيرة جدًا */
+@media (max-width: 600px) {
+  .container {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+  }
+  .thumbnail {
+    height: 120px;
+  }
+  .card h2 {
+    font-size: 0.8rem;
+    margin: 8px 4px;
+  }
+}
+
   </style>
 </head>
 <body>
   <header>
-    <h1>خطب الشيخ مجدي الصادق</h1>
+    <h1>قوائم تشغيل قناة الشيخ مجدي الصادق</h1>
   </header>
 
   <div class="container">
-    <!-- الكارت الأول -->
-    <a class="card" href="https://www.youtube.com/watch?v=P1xIj76FkVw" target="_blank">
-      <img src="./img/m.jpg" alt="الخطبة 1" class="thumbnail">
-      <h2>شاهد الخطبة من هنا</h2>
+    <!-- كل كارت هنا لقائمة تشغيل -->
+    <a class="card" href="https://youtube.com/playlist?list=PLtu1XNpAD1RMamVaKKKAz1fsqt9jklNEV&si=qTSLF8j-6RAXLueM" target="_blank">
+      <img src="./img/A.jpg" alt="قائمة 1" class="thumbnail">
+      <h2>من ثمرات العمل الصالح</h2>
     </a>
+    <a class="card" href="https://youtube.com/playlist?list=PLtu1XNpAD1RNDLyrJiwkqmIIdU_Jj1Dhq&si=dgYAqZtqNp_1dyNy" target="_blank">
+      <img src="./img/A.jpg" alt="قائمة 1" class="thumbnail">
+      <h2>ظاهرة الإنتحار</h2>
+    </a>
+    <a class="card" href="https://youtube.com/playlist?list=PLtu1XNpAD1ROvEH3_ytPpHIoBe_08gWg-&si=zHR7f_JOVOGOATk7" target="_blank">
+      <img src="./img/A.jpg" alt="قائمة 1" class="thumbnail">
+      <h2>توفني مسلمًا وألحقني بالصالحين</h2>
+    </a>
+    <a class="card" href="https://youtube.com/playlist?list=PLtu1XNpAD1ROH8M5UZOGgv3zf4wdQidZ7&si=29tjlMB35Xy7QseW" target="_blank">
+      <img src="./img/A.jpg" alt="قائمة 1" class="thumbnail">
+      <h2>أذان</h2>
+    </a>
+    <a class="card" href="https://youtube.com/playlist?list=PLtu1XNpAD1RMSgTRgESYfQbIYeBGlYHiL&si=q6H47DeB4KrGT_Yi" target="_blank">
+      <img src="./img/A.jpg" alt="قائمة 1" class="thumbnail">
+      <h2>هذه أخلاق محمد ﷺ .. الصدق</h2>
+    </a>
+    <a class="card" href="https://youtube.com/playlist?list=PLtu1XNpAD1ROslQNpyKgzXPgZYTJupD0R&si=Eh-rIt-AgXTlkTBR" target="_blank">
+      <img src="./img/A.jpg" alt="قائمة 1" class="thumbnail">
+      <h2>أدعية</h2>
+    </a>
+    <a class="card" href="https://youtube.com/playlist?list=PLtu1XNpAD1RMlcJYbEoyX6_ypBpjAOSGJ&si=h3SDnBBFmDFDZcqt" target="_blank">
+      <img src="./img/A.jpg" alt="قائمة 1" class="thumbnail">
+      <h2>خطب متنوعة</h2>
+    </a>
+    <a class="card" href="https://youtube.com/playlist?list=PLtu1XNpAD1RPMvJ4O3uUHHjCCkjF9oCkH&si=M-x37pIit2Prd6tk" target="_blank">
+      <img src="./img/A.jpg" alt="قائمة 1" class="thumbnail">
+      <h2>قصائد و أناشيد</h2>
+    </a>
+    <a class="card" href="https://youtube.com/playlist?list=PLtu1XNpAD1RO_6eTXCm6rvwFXvReDRvis&si=mNIlIfihMg-U9A-w" target="_blank">
+      <img src="./img/A.jpg" alt="قائمة 1" class="thumbnail">
+      <h2>قطوف من حدائق القرآن</h2>
+    </a>
+    <a class="card" href="https://youtube.com/playlist?list=PLtu1XNpAD1RPFy3IaxbhToyl6hRd-zYha&si=Py128XCfdD-gLhTP" target="_blank">
+      <img src="./img/A.jpg" alt="قائمة 1" class="thumbnail">
+      <h2>مقاطع من الخطب و الدروس</h2>
+    </a>
+    <a class="card" href="https://youtube.com/playlist?list=PLtu1XNpAD1RN_4Dbxh3Ig79FptvFj2ZZ_&si=JwPALGZVXBgHrGzN" target="_blank">
+      <img src="./img/A.jpg" alt="قائمة 1" class="thumbnail">
+      <h2>المصحف المرتل</h2>
+    </a>
+    <a class="card" href="https://youtube.com/playlist?list=PLtu1XNpAD1ROkPUPAbX1PThKKEKstN3Wc&si=3s5ZCQ59zAg69Wpd" target="_blank">
+      <img src="./img/A.jpg" alt="قائمة 1" class="thumbnail">
+      <h2>مقتطفات</h2>
+    </a>
+   
 
-    <!-- الكارت الثاني -->
-    <a class="card" href="https://www.youtube.com/watch?v=5eGGCvaEJGHluCsO" target="_blank">
-      <img src="./img/m.jpg" alt="الخطبة 2" class="thumbnail">
-      <h2>شاهد الخطبة من هنا</h2>
-    </a>
-
-    <!-- الكارت الثالث -->
-    <a class="card" href="https://www.youtube.com/watch?v=kGbvNWVZ6A139lum" target="_blank">
-      <img src="./img/m.jpg" alt="الخطبة 3" class="thumbnail">
-      <h2>شاهد الخطبة من هنا</h2>
-    </a>
+   
   </div>
+
+  <footer>
+    هذا العمل برعاية <strong>أحمد جمال الحيني</strong>
+  </footer>
 </body>
 </html>
